@@ -1,2 +1,2 @@
-"""suncodes-ai-chat"""
+"""xxt-ai-chat"""
 __version__ = '0.1.0'

@@ -1,0 +1,38 @@
+database:
+  mongodb:
+    hosts: 127.0.0.1:27017
+    user: root
+    password: root
+    database: llm_history
+
+oss:
+  aws_access_key_id: xxx
+  aws_secret_access_key: xxx
+  endpoint_url: https://xxx
+  bucket_name: xxx
+
+logging:
+  version: 1
+  disable_existing_loggers: false
+
+  filters:
+    add_custom_attr:
+      (): suncodes_ai_chat.suncodes_config.logging_formatter.PackageFilter  # 引用自定义 Filter
+
+  formatters:
+    detailed:
+      class: suncodes_ai_chat.suncodes_config.logging_formatter.ColoredFormatter
+      format: "%(asctime)s.%(msecs)03d %(levelname)15s %(process)7d --- [%(threadName)20s] %(name)-s.%(funcName)-15s : %(message)s"
+      datefmt: "%Y-%m-%d %H:%M:%S"
+
+  handlers:
+    console:
+      class: logging.StreamHandler
+      level: DEBUG
+      formatter: detailed
+      stream: ext://sys.stdout
+      filters: [add_custom_attr]
+
+  root:
+    level: DEBUG
+    handlers: [console]
