@@ -1,0 +1,12 @@
+#百度
+BAIDU_API_LEY: "xxxx"
+BAIDU_SECRET_KEY: "xxxx"
+
+#讯飞
+XUNFEI_API_KEY: "xxxx"
+XUNFEI_SECRET_KEY: "xxxx"
+XUNFEI_APP_ID: "xxxx"
+# LLM
+DEEPSEEK_API_KEY: "xxxx"
+DOUBAO_API_KEY: "xxxx"
+ZHIPU_API_KEY: "xxxx"

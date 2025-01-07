@@ -9,6 +9,7 @@ import uvicorn
 from fastapi import FastAPI
 
 from suncodes_ai_chat.suncodes_config.config_logging import load_logging_dict_config, config_logging
+from suncodes_ai_chat.suncodes_api.base_chat import base_chat_api
 
 logging = logging.getLogger(__name__)
 # 加载日志配置
@@ -16,7 +17,7 @@ dict_config = load_logging_dict_config()
 config_logging(dict_config=dict_config)
 
 app = FastAPI()
-
+app.include_router(base_chat_api.router)
 
 def start():
     """

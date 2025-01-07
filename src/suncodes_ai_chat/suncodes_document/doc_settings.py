@@ -7,3 +7,4 @@ PROMPT_DIR= BASE_DIR / 'suncodes_document' / 'prompt'
 
 PROMPT_TEXT_TRANSLATE = PROMPT_DIR / 'text_translate.md'
 PROMPT_QUESTION_LEVEL = PROMPT_DIR / 'question_level.md'
+PROMPT_BAIKE = PROMPT_DIR / 'baike.md'

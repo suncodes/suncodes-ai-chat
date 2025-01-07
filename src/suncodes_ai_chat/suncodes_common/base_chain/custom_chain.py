@@ -45,7 +45,7 @@ def get_support_llm(llm_name: str, **kwargs):
 class CustomLLMChain:
     def __init__(self, **kwargs):
         self.temperature = kwargs.get("temperature", 0.1)
-        self.llm = kwargs.get("llm", "zhipu")
+        self.llm = kwargs.get("llm", "deepseek")
         self.prompt = kwargs.get("prompt", None)
         self.memory = kwargs.get("memory", False)
         self.verbose = kwargs.get("verbose", True)

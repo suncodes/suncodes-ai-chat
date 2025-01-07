@@ -7,6 +7,8 @@ from edge_tts import Communicate
 
 from suncodes_ai_chat.suncodes_common.base_stream.queue_manager import QueueManager
 from suncodes_ai_chat.suncodes_utils.md_text import markdown_to_text
+from suncodes_ai_chat.suncodes_common.oss.oss_cli import CustomOSSClient
+from suncodes_ai_chat.suncodes_utils.file_base64 import get_mp3_duration
 
 logging = logging.getLogger(__name__)
 
@@ -66,13 +68,13 @@ class EdgeTTSBase:
 
     def __init__(self, **kwargs):
         # 音色
-        self.voice = kwargs.get("voice", "en-US-JennyNeural")
+        self.voice = kwargs.get("voice", "zh-CN-XiaoyiNeural")
         # 语速
         self.rate = kwargs.get("rate", "-20%")
         # 音量
         self.volume = kwargs.get("volume", "+0%")
 
-    async def tts_by_edge(self, text: str, params: dict = None) -> str:
+    async def tts_by_edge(self, text: str, params: dict = None):
         """
         TTS
         :param text:
@@ -96,7 +98,8 @@ class EdgeTTSBase:
             volume = self.volume
 
         audio_bytes = await retry_async(async_tts_bytes, text_escape, voice, rate, volume)
-        return str(base64.b64encode(audio_bytes), 'utf-8')
+        oss = CustomOSSClient()
+        return oss.upload_file_random_path(audio_bytes), get_mp3_duration(audio_bytes)
 
 
 class EdgeTTSStream:
