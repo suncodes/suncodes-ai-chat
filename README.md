@@ -81,7 +81,7 @@ File ---> settings --->Project:xxx ---> Python Interpreter ---> Add Interpreter 
 - 设置方式1： `File` --> `Settings` --> `Project Settings` --> `Project Structure`，标记`src`和`tests`目录为`Sources`
 - 设置方式2： 鼠标悬浮在 `src` 目录，右键 --> `Mark Directory As` --> `Sources Root`
 
-![img.png](./docs/assets/img.png)
+ ![img.png](./docs/assets/img.png)
 
 ## 4. 关于日志
 
